@@ -21,11 +21,11 @@ struct CustomText: View {
 struct MainTapView: View {
     var body: some View {
         TabView {
-            Text("Feed")
+            FeedView()
                 .tabItem {
                     Image(systemName: "house")
                 }
-            Text("Search")
+            SearchView()
                 .tabItem {
                     Image(systemName: "magnifyingglass")
                 }

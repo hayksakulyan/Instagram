@@ -16,15 +16,19 @@ struct FeedView: View {
                         FeedCell()
                     }
                 }
+                .padding(.top, 8)
             }
             .navigationTitle("Feed")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Image("icon")
+                    Image("insta")
                         .resizable()
-                        .frame(width: 100, height: 32)
-                        
+                        .frame(width: 100, height: 72)
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Image(systemName: "paperplane")
+                        .resizable()
                 }
             }
         }
