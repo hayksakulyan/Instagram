@@ -20,6 +20,7 @@
 		6244B2032A5E931A009FFB5C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6244B2022A5E931A009FFB5C /* LoginView.swift */; };
 		6244B2072A654615009FFB5C /* AddEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6244B2062A654615009FFB5C /* AddEmailView.swift */; };
 		6244B20A2A6558D4009FFB5C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6244B2092A6558D4009FFB5C /* User.swift */; };
+		6244B20C2A657355009FFB5C /* CurrentUserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6244B20B2A657355009FFB5C /* CurrentUserProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		6244B2022A5E931A009FFB5C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		6244B2062A654615009FFB5C /* AddEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEmailView.swift; sourceTree = "<group>"; };
 		6244B2092A6558D4009FFB5C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		6244B20B2A657355009FFB5C /* CurrentUserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				6244B1F72A5BF2A2009FFB5C /* ProfileView.swift */,
+				6244B20B2A657355009FFB5C /* CurrentUserProfileView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				6244B1DE2A5BEF8C009FFB5C /* ContentView.swift in Sources */,
 				6244B2032A5E931A009FFB5C /* LoginView.swift in Sources */,
 				6244B1DC2A5BEF8C009FFB5C /* InstagramSwiftUIApp.swift in Sources */,
+				6244B20C2A657355009FFB5C /* CurrentUserProfileView.swift in Sources */,
 				6244B2072A654615009FFB5C /* AddEmailView.swift in Sources */,
 				6244B2012A5E87BF009FFB5C /* SearchView.swift in Sources */,
 				6244B1F62A5BF174009FFB5C /* MainTapView.swift in Sources */,
