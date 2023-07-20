@@ -10,9 +10,10 @@ import SwiftUI
 struct AddEmailView: View {
     
     @State private var email = ""
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
-        VStack {
+        VStack(spacing: 12) {
             Text("Add your email")
                 .font(.title2)
                 .fontWeight(.bold)
@@ -24,12 +25,34 @@ struct AddEmailView: View {
                 .padding(.horizontal, 24)
             TextField("Email", text: $email)
                 .textInputAutocapitalization(.none)
-                .font(.subheadline)
-                .padding(12)
-                .background(Color(.systemGray6))
-                .cornerRadius(10)
-                .padding(.horizontal, 24)
-                .padding(.top)
+                .modifier(IGTextFieldModifier())
+            
+            Button {
+                //
+            } label: {
+                Text("Login")
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 24)
+                    .frame(width: 350, height: 44)
+                    .background(Color(.systemBlue))
+                    .cornerRadius(8)
+            }
+            .padding(.vertical)
+            
+            Spacer()
+        }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Image(systemName: "chevron.left")
+                    .imageScale(.large)
+                    .foregroundColor(Color.blue)
+                    .onTapGesture {
+                        dismiss()
+                    }
+                    
+            }
         }
     }
 }
