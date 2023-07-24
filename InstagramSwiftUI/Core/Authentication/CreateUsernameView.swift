@@ -1,35 +1,35 @@
 //
-//  AddEmailView.swift
+//  CreateUsernameView.swift
 //  InstagramSwiftUI
 //
-//  Created by Hayk Sakulyan on 17.07.23.
+//  Created by Hayk Sakulyan on 20.07.23.
 //
 
 import SwiftUI
 
-struct AddEmailView: View {
+struct CreateUsernameView: View {
     
-    @State private var email = ""
-    @Environment(\.dismiss) var dismisss
+    @State private var username = ""
+    @Environment(\.dismiss) var dismiss
+
     
     var body: some View {
         VStack(spacing: 12) {
-            Text("Add your email")
+            Text("Create username")
                 .font(.title2)
                 .fontWeight(.bold)
                 .padding(.top)
-            Text("You'll use this email to sign in to your account")
+            Text("You'll use this username to sign in to your account")
                 .font(.footnote)
                 .foregroundColor(.gray)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 24)
-            TextField("Email", text: $email)
+            TextField("Username", text: $username)
                 .textInputAutocapitalization(.none)
                 .modifier(IGTextFieldModifier())
             
             NavigationLink {
-                CreateUsernameView()
-            // MARK: for custom back button need to hide default back button
+                CreatePasswordView()
                     .navigationBarBackButtonHidden(true)
             } label: {
                 Text("Next")
@@ -43,7 +43,6 @@ struct AddEmailView: View {
             }
             .padding(.vertical)
             
-           
             Spacer()
         }
         .toolbar {
@@ -52,15 +51,16 @@ struct AddEmailView: View {
                     .imageScale(.large)
                     .foregroundColor(Color.blue)
                     .onTapGesture {
-                        dismisss()
+                        dismiss()
                     }
+                    
             }
         }
     }
 }
 
-struct AddEmailView_Previews: PreviewProvider {
+struct CreateUsernameView_Previews: PreviewProvider {
     static var previews: some View {
-        AddEmailView()
+        CreateUsernameView()
     }
 }

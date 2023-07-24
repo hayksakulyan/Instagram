@@ -1,38 +1,35 @@
 //
-//  AddEmailView.swift
+//  CompleteSignUpView.swift
 //  InstagramSwiftUI
 //
-//  Created by Hayk Sakulyan on 17.07.23.
+//  Created by Hayk Sakulyan on 24.07.23.
 //
 
 import SwiftUI
 
-struct AddEmailView: View {
-    
-    @State private var email = ""
-    @Environment(\.dismiss) var dismisss
-    
+struct CompleteSignUpView: View {
+    @Environment(\.dismiss) var dismiss
+
     var body: some View {
+        
+        
         VStack(spacing: 12) {
-            Text("Add your email")
+            Spacer()
+
+            Text("Welcome to Instagram, Jon Anders")
                 .font(.title2)
                 .fontWeight(.bold)
+                .multilineTextAlignment(.center)
                 .padding(.top)
-            Text("You'll use this email to sign in to your account")
+            Text("Click below to complete registration and start using Instagram")
                 .font(.footnote)
-                .foregroundColor(.gray)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 24)
-            TextField("Email", text: $email)
-                .textInputAutocapitalization(.none)
-                .modifier(IGTextFieldModifier())
             
-            NavigationLink {
-                CreateUsernameView()
-            // MARK: for custom back button need to hide default back button
-                    .navigationBarBackButtonHidden(true)
+            Button {
+                print("Complete Sign Up")
             } label: {
-                Text("Next")
+                Text("Complete Sign Up")
                     .font(.subheadline)
                     .fontWeight(.semibold)
                     .foregroundColor(.white)
@@ -52,15 +49,15 @@ struct AddEmailView: View {
                     .imageScale(.large)
                     .foregroundColor(Color.blue)
                     .onTapGesture {
-                        dismisss()
+                        dismiss()
                     }
             }
         }
     }
 }
 
-struct AddEmailView_Previews: PreviewProvider {
+struct CompleteSignUpView_Previews: PreviewProvider {
     static var previews: some View {
-        AddEmailView()
+        CompleteSignUpView()
     }
 }
