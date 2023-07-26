@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ProfileView: View {
     
+    let user: User
+    
     private let gridItems:[GridItem] = [
         .init(.flexible(), spacing: 1),
         .init(.flexible(), spacing: 1),
@@ -16,13 +18,13 @@ struct ProfileView: View {
     ]
     
     var body: some View {
-        NavigationStack {
+//        NavigationStack {
             ScrollView {
                 // header
                 VStack(spacing: 10) {
                     // pic and states
                     HStack {
-                        Image("icon")
+                        Image(user.profaleImageUrl ?? "")
                             .resizable()
                             .scaledToFill()
                             .frame(width: 80, height: 80)
@@ -42,11 +44,16 @@ struct ProfileView: View {
                     
                     // name and bio
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("Hayk Sakulyan")
-                            .font(.footnote)
-                            .fontWeight(.semibold)
-                        Text("Hello Everyone")
-                            .font(.footnote)
+                        if let fullname = user.fullname {
+                            Text(fullname)
+                                .font(.footnote)
+                                .fontWeight(.semibold)
+                        }
+                        if let bio = user.bio {
+                            Text(bio)
+                                .font(.footnote)
+                        }
+                        
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal)
@@ -91,15 +98,12 @@ struct ProfileView: View {
                                         .stroke(Color.gray, lineWidth: 1)
                                 }
                         }
-
                     }
-
-                    
                     Divider()
                 }
                 // post grid view
                 LazyVGrid(columns: gridItems, spacing: 1) {
-                    ForEach(0...15, id: \.self) { index in
+                    ForEach(0...10, id: \.self) { index in
                         Image("icon")
                             .resizable()
                             .scaledToFill()
@@ -108,24 +112,14 @@ struct ProfileView: View {
             }
             .navigationTitle("Profile")
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        //
-                    } label: {
-                        Image(systemName: "line.3.horizontal")
-                            .foregroundColor(.black)
-                    }
-
-                }
-            }
-        }
+            
+//        }
         
     }
 }
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView()
+        ProfileView(user: User.MOCK_USERS[0])
     }
 }

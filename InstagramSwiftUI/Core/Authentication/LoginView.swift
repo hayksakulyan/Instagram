@@ -54,7 +54,7 @@ struct LoginView: View {
                             .frame(width: 360, height: 44)
                             .background(Color(.systemBlue))
                             .cornerRadius(8)
-                            
+                        
                     }
                     .padding(.vertical)
                     
@@ -66,7 +66,7 @@ struct LoginView: View {
                             .fontWeight(.semibold)
                         Rectangle()
                             .frame(width: (UIScreen.main.bounds.width / 2) - 40, height: 0.5)
-                            
+                        
                     }
                     .foregroundColor(.gray)
                     
@@ -85,7 +85,7 @@ struct LoginView: View {
                     NavigationLink {
                         AddEmailView()
                             .navigationBarBackButtonHidden(true)
-                            
+                        
                     } label: {
                         HStack {
                             Text("Don't have an account")

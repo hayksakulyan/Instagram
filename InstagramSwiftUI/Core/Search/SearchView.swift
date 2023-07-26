@@ -20,7 +20,7 @@ struct SearchView: View {
                                     .resizable()
                                     .scaledToFill()
                                     .frame(width: 40, height: 40)
-                                .clipShape(Circle())
+                                    .clipShape(Circle())
                                 VStack(alignment: .leading) {
                                     Text(user.username)
                                         .fontWeight(.semibold)
@@ -32,15 +32,15 @@ struct SearchView: View {
                                 Spacer()
                             }
                         }
-                        .padding(.horizontal)
                         .foregroundColor(.black)
+                        .padding(.horizontal)
                     }
                 }
                 .padding(.top, 8)
                 .searchable(text: $searchText, prompt: "Search ...")
             }
             .navigationDestination(for: User.self, destination: { user in
-                ProfileView()
+                ProfileView(user: user)
             })
             .navigationTitle("Explore")
             .navigationBarTitleDisplayMode(.inline)
