@@ -8,24 +8,29 @@
 import SwiftUI
 
 struct FeedCell: View {
+    
+    let post: Post
+    
     var body: some View {
         VStack {
             // image + username
             HStack {
-                Image("icon")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 36, height: 36)
-                    .clipShape(Circle())
-                Text("batman")
-                    .font(.footnote)
-                    .fontWeight(.semibold)
+                if let user = post.user {
+                    Image(user.profaleImageUrl ?? "")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 36, height: 36)
+                        .clipShape(Circle())
+                    Text(user.username)
+                        .font(.footnote)
+                        .fontWeight(.semibold)
+                }
                 Spacer()
             }
             .padding(.leading, 8)
             // post image
             
-            Image("icon")
+            Image(post.imageURL)
                 .resizable()
                 .scaledToFill()
                 .frame(height: 400)
@@ -54,7 +59,7 @@ struct FeedCell: View {
             .padding(.top, 4)
             .foregroundColor(.black)
             // likes label
-            Text("23 likes")
+            Text("\(post.likes) likes")
                 .font(.footnote)
                 .fontWeight(.semibold)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -62,8 +67,9 @@ struct FeedCell: View {
                 .padding(.top, 1)
             // captain label
             HStack {
-                Text("batmen  ").fontWeight(.semibold) +
-                Text("This is some test caption for now")
+                // + dnum enk nra hamar vor 2 hat texty senc chlini shat greluc -= havasar lini
+                Text("\(post.user?.username ?? "") ").fontWeight(.semibold) +
+                Text("\(post.caption)")
             }
             .font(.footnote)
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -82,6 +88,6 @@ struct FeedCell: View {
 
 struct FeedCell_Previews: PreviewProvider {
     static var previews: some View {
-        FeedCell()
+        FeedCell(post: Post.MOC_POSTS[0])
     }
 }

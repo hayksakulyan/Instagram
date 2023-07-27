@@ -7,20 +7,10 @@
 
 import SwiftUI
 
-struct CustomText: View {
-    var tabItemText: String
-    var imageName: String
-    var body: some View {
-        Text(tabItemText)
-            .tabItem {
-                Image(systemName: imageName)
-            }
-    }
-}
-
 struct MainTapView: View {
+    @State private var selectedIndex = 0
     var body: some View {
-        TabView {
+        TabView(selection: $selectedIndex) {
             FeedView()
                 .tabItem {
                     Image(systemName: "house")
@@ -29,7 +19,7 @@ struct MainTapView: View {
                 .tabItem {
                     Image(systemName: "magnifyingglass")
                 }
-            Text("Upload Post")
+            UploadpostView()
                 .tabItem {
                     Image(systemName: "plus.square")
                 }
@@ -37,7 +27,7 @@ struct MainTapView: View {
                 .tabItem {
                     Image(systemName: "heart")
                 }
-            CurrentUserProfileView()
+            CurrentUserProfileView(user: User.MOCK_USERS[0])
                 .tabItem {
                     Image(systemName: "person")
                 }
