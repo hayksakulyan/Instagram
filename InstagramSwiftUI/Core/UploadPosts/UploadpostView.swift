@@ -13,6 +13,7 @@ struct UploadpostView: View {
     @State private var caption = ""
     @State private var imagePickerPresented  = false
     @StateObject private var viewModel = UploadPostViewModel()
+    @Binding var tabIndex: Int
     
     var body: some View {
         VStack {
@@ -23,6 +24,7 @@ struct UploadpostView: View {
                     caption = ""
                     viewModel.selectedImage = nil
                     viewModel.postImage = nil
+                    tabIndex = 0
                 } label: {
                     Text("Cancel")
                 }
@@ -52,6 +54,7 @@ struct UploadpostView: View {
                         .frame(width: 100, height: 100)
                         .clipped()
                 }
+                // axis dnum enq vor texty vertikal helni verev
                 TextField("Enter your caption", text: $caption, axis: .vertical)
             }
             .padding()
@@ -60,12 +63,13 @@ struct UploadpostView: View {
         .onAppear {
             imagePickerPresented.toggle()
         }
+        // access enk talis photonerin nerqin
         .photosPicker(isPresented: $imagePickerPresented, selection: $viewModel.selectedImage)
     }
 }
 
 struct UploadpostView_Previews: PreviewProvider {
     static var previews: some View {
-        UploadpostView()
+        UploadpostView(tabIndex: .constant(0))
     }
 }
