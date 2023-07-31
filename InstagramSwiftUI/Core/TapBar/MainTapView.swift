@@ -43,7 +43,7 @@ struct MainTapView: View {
                 }.tag(3)
             CurrentUserProfileView(user: User.MOCK_USERS[0])
                 .onAppear {
-                    selectedIndex = 0
+                    selectedIndex = 4
                 }
                 .tabItem {
                     Image(systemName: "person")
