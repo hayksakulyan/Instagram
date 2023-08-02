@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainTapView: View {
+    let user: User
     @State private var selectedIndex = 0
     
     // partadir petqa tag dnenq vor ashxati bindingy
@@ -41,7 +42,7 @@ struct MainTapView: View {
                 .tabItem {
                     Image(systemName: "heart")
                 }.tag(3)
-            CurrentUserProfileView(user: User.MOCK_USERS[0])
+            CurrentUserProfileView(user: user)
                 .onAppear {
                     selectedIndex = 4
                 }
@@ -55,6 +56,6 @@ struct MainTapView: View {
 
 struct MainTapView_Previews: PreviewProvider {
     static var previews: some View {
-        MainTapView()
+        MainTapView(user: User.MOCK_USERS[0])
     }
 }
